@@ -1,44 +1,65 @@
-/*En esta oportunidad el juego evaluará tus
- aptitudes a partir de la cantidad de intentos, 
- por lo cual se informará lo siguiente:
-1° intento: “usted es un Psíquico”.
-2° intento: “excelente percepción”.
-3° intento: “Esto es suerte”.
-4° intento: “Excelente técnica”.
-5° intento: “usted está en la media”.
-Desde  6 Intentos hasta 10:”falta técnica”
-Más de 10 intentos: “afortunado en el amor!!”.*/
-
-var numeroSecreto; 
-var contadorIntentos;
+var numeroSecreto=0; 
+var contadorIntentos=0;
+var n;   									//bandera
 
 function comenzar()
 {
-	//Genero el número RANDOM entre 1 y 100
-	numeroSecreto=Math.floor(Math.random()*(101-1)+1);//Genero el número RANDOM entre 1 y 100
+	document.getElementById("intentos").value=contadorIntentos;
+	numeroSecreto=Math.floor(Math.random()*(101-1)+1); //Genero el número RANDOM entre 1 y 100
+	n=1;       															
 	alert("Que comiense el Juego");
 	console.log(numeroSecreto);
 }
 
 function verificar()
 {
-	contadorIntentos=contadorIntentos+1;
- 	console.log(contadorIntentos);
-	document.getElementById("intentos").value=contadorIntentos;
-	if(document.getElementById("numero").value==numeroSecreto)
- 	{
-  	  alert("Usted es un ganador!!! y en solo " + contadorIntentos +" intentos");
+	if(n==1)
+	{
+		contadorIntentos++;
+		document.getElementById("intentos").value=contadorIntentos;
+		console.log(contadorIntentos);
+		if(document.getElementById("numero").value==numeroSecreto)
+		{
+			switch(contadorIntentos)
+			{
+				case 1:
+					alert("Usted es un Psiquico");
+					break;
+				case 2:
+					alert("Excelente Percepcion");
+					break;
+				case 3:
+					alert("Esto es suerte");
+					break;
+				case 4:
+					alert("Excelente tecnica");
+					break;
+				case 5:
+					alert("Usted esta en la media");
+					break;
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+				case 10:
+					alert("Falta tecnica");
+					break;
+				default:
+					alert("Afortunado en el amor");
+					break;
+			}
+			contadorIntentos=0;
+			numeroSecreto=0;
+			n=0;
+			document.getElementById("numero").value="";
+			document.getElementById("intentos").value="";
+		}
+		else{
+			alert("NOP...Intente de nuevo");
+		}
 	}
 	else
 	{
-		if(document.getElementById("numero").value<numeroSecreto)
-		{
-		alert("Falta");
-		}
-		else
-		{
-		alert("te pasaste");
-		}
+		alert("Precione COMENZAR primero");
 	}
-
 }
