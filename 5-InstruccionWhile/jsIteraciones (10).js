@@ -45,7 +45,6 @@ function mostrar()
             cero++;
           }
       }
-
     respuesta=prompt("Continuar? (si/no)");
     while(respuesta!="si" && respuesta!="no")
     {
@@ -58,5 +57,5 @@ promneg=negativo/cnegat;
 document.write("Suma de los negativos: "+negativo+"<br>Suma de los positivos :"+positivo+"<br>Cantidad de positivos :"+cposit+"<br>Cantidad de negativos :"+cnegat+"<br>Cantidad de ceros :"+cero+"<br>Cantidad de números pares :"+par);
 document.write("<br>Promedio de positivos :"+prompos+"<br>Promedios de negativos :"+promneg+"<br>Diferencia entre positivos y negativos :"+(positivo+negativo));
 
-}//FIN DE LA FUNCIÓN
+}//FIN DE LA FUNCIÓN0
 
